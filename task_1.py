@@ -1,34 +1,48 @@
-print("Python Calculator")
+print("==================\nWelcome\nDear\nUser!\n=================")
+print("It's Calculator made in Python !")
 print("-----------------")
 
 def calculator():
 
 	try:
-		num_1 = int(input("Enter your first number : "))
-		num_2 = int(input("Enter your second number : "))
+		operation = input(''' Please type in the math operation you would like to complete :
+                                + for addition
+                                - for substraction
+                                * for multiplication
+                                / for division
+                                ** for power
+                                % for modulo
+                                : ''')
+		num1 = int(input("Enter your first number : "))
+		num2 = int(input("Enter your second number : "))
 
-		operation = input(''' Please type in the math operation you would like to complate :
-				+ for addition
-				- for substraction
-				* for multiplication
-				/ for division
-				** for power
-				% for modulo
-				: ''')
+
 		if operation == '+':
-			print(f'{num_1} + {num_2} = ',(num_1+num_2))
+			print(f'{num1} + {num2} = ',(num1+num2))
 		elif operation == '-':
-			print(f'{num_1} - {num_2} = ',(num_1-num_2))
+			print(f'{num1} - {num2} = ',(num1-num2))
+		elif operation == '*':
+                        print(f'{num1} * {num2} = ',(num1*num2))
+		elif operation == '/':
+			if num2 != 0:
+             			print(f'{num1} / {num2} = ',(num1/num2))
+			else:
+             			raise ZeroDivisionError("Cannot divide by zero")
+		elif operation == '%':
+			if num2 != 0:
+                              print(f'{num1} % {num2} = ', (num1%num2))
+			else:
+				raise ValueError("Cannot perform modulo by zero as divisor")
 		elif operation == '**':
-			print('{num_1} ^ {num_2} = ',(num_1**num_2))
+			print('{num1} ^ {num2} = ',(num1**num2))
 		else:
 			print("Please Enter valid operation!")
 	except ValueError:
 		print("Invalid input! please enter valid number.")
-	except ZeroDivitionError:
+	except ZeroDivisionError:
 		print("Cannot Divide by Zero")
 	except EOFError:
-		print("See you soon...")
+		print("Bye")
 
 calculator()
 
